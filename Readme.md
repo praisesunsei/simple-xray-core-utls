@@ -1,3 +1,7 @@
+# IMPORTANT (NOT MAINTAIN SOURCE, FORK VERSION)
+
+
+
 # Скрипт для лёгкой установки и настройки ядра X-ray без графического интерфейса
 
 Вы все знакомы с такими панелями управления, как 3x-ui, Marzban и другими. Все эти панели являются всего лишь графическими надстройками над ядром X-ray и служат для удобного управления им, а также для создания подключений и настроек. Ядро же может работать без всяких панелей и управляться полностью через терминал. Основное преимущество использования «голого» ядра заключается в том, что вам не нужно заморачиваться с доменами и TLS-сертификатами. Само ядро можно установить и администрировать вручную с помощью официальной документации. Этот скрипт предназначен для упрощения этой задачи: он автоматически установит ядро на сервер, создаст конфигурационные файлы и несколько исполняемых файлов для удобного управления пользователями.
@@ -20,7 +24,7 @@
 Скрипт создавался и тестировался под ОС Ubuntu 22 x64 и Ubuntu 24 x64. На других ОС может работать некорректно. Чтобы скачать и запустить скрипт, используйте эту команду:
 
 ```sh
-wget -qO- https://raw.githubusercontent.com/ServerTechnologies/simple-xray-core/refs/heads/main/xray-install | bash
+wget -qO- https://raw.githubusercontent.com/praisesunsei/simple-xray-core-utls/main/xray-install.sh | bash
 ```
 
 ## Команды для управления пользователями
@@ -77,7 +81,7 @@ cp /usr/local/etc/xray/.keys /usr/local/etc/xray/.keys.old
 ```
 Чтобы восстановить конфигурацию, введите:
 ```sh
-wget -qO- https://raw.githubusercontent.com/ServerTechnologies/simple-xray-core/refs/heads/main/xray-install | bash
+wget -qO- https://raw.githubusercontent.com/praisesunsei/simple-xray-core-utls/main/xray-install.sh | bash
 mv /usr/local/etc/xray/config.json.old /usr/local/etc/xray/config.json
 mv /usr/local/etc/xray/.keys.old /usr/local/etc/xray/.keys
 systemctl restart xray
@@ -87,7 +91,7 @@ systemctl restart xray
 ## Установка с транспортом XHTTP.
 Установка производится слудующей командой. Внимание! Все пользователи будут удалены - их придется подключать заново.
 ```sh
-wget -qO- https://raw.githubusercontent.com/ServerTechnologies/simple-xray-core/refs/heads/main/xhttp-xray-install | bash
+wget -qO- https://raw.githubusercontent.com/praisesunsei/simple-xray-core-utls/main/xhttp-xray-install.sh | bash
 ```
 Команды для управления пользователями те же самые, что и в предыдущем пункте
 
