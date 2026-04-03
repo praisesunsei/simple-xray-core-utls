@@ -123,3 +123,21 @@ systemctl enable hysteria-server
 echo "🎉 Hysteria2 установлен и запущен!"
 hysteria-info
 cat ~/hysteria-help
+
+
+cat > /usr/local/bin/hysteria-qr << EOF
+#!/bin/bash
+IP=\$(curl -4 -s icanhazip.com)
+PASS=\$(grep 'password:' /etc/hysteria/server.yaml | awk '{print \$2}')
+echo "🌐 Hysteria2 QR-код:"
+echo "hysteria2://\$PASS@\$IP:443?sni=www.youtube.com#Hysteria2-\$IP" | qrencode -t ansiutf8
+echo ""
+echo "📱 Ссылка: hysteria2://\$PASS@\$IP:443?sni=www.youtube.com"
+EOF
+chmod +x /usr/local/bin/hysteria-qr
+
+# 3. Перезапуск
+nohup hysteria server -c /etc/hysteria/server.yaml > /var/log/hysteria.log 2>&1 &
+
+echo "✅ QR-команда готова!"
+echo "Запусти: hysteria-qr"
